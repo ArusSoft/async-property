@@ -1,0 +1,30 @@
+{
+  "name": "async-property",
+  "version": "0.0.1",
+  "description": "Async property",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --no-cache"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArusSoft/async-property.git"
+  },
+  "keywords": [
+    "async",
+    "property"
+  ],
+  "author": "Alex Arus",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ArusSoft/async-property/issues"
+  },
+  "homepage": "https://github.com/ArusSoft/async-property#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.6.2"
+  }
+}
