@@ -1,6 +1,6 @@
 {
   "name": "async-property",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Async property",
   "main": "index.js",
   "scripts": {
