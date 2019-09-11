@@ -1,31 +1,35 @@
 # async-property
-Simple helper to store async operations state and data.
+Simple typesafe helper to store async operations state and data.
 
 # Example
-To handle with async processes in react and redux we use async types and actions, so why not to use async properties.
+To work with async processes in react and redux we use async types and actions, so why not to use async properties.
 ```tsx
 import React, { useState, useEffect } from 'react'
 import {
-  AsyncProperty, 
+  AsyncProperty,
   emptyProperty, requestProperty,
   setSuccessProperty, setFailureProperty,
   isEmpty, isRequest, isSuccess, isFailure
 } from 'async-property';
 
-const requestStringProperty = () => new Promise(() => 'async result')
+const requestStringProperty = async () => new Promise<string>((resolve) => resolve('async result'))
 
-function Example() {
+const Example: React.FC = () => {
   const [stringProperty, setStringProperty] = useState<AsyncProperty<string>>(emptyProperty)
 
-  useEffect(async () => {
-    try {
-      setStringProperty(requestProperty)
-      const stringResult = await requestStringProperty()
-      setStringProperty(setSuccessProperty(stringResult))
-    } catch (error) {
-      setFailureProperty(error)
+  useEffect(() => {
+    setStringProperty(requestProperty)
+
+    const fetchData = async () => {
+      try {
+        const stringResult = await requestStringProperty()
+        setStringProperty(setSuccessProperty(stringResult))
+      } catch (error) {
+        setStringProperty(setFailureProperty(error))
+      }
     }
-  })
+    fetchData()
+  }, [])
 
   if (isEmpty(stringProperty) || isRequest(stringProperty)) {
     return (
@@ -44,6 +48,8 @@ function Example() {
       <p>Success: {stringProperty.value}</p>
     )
   }
+
+  return <p>Initialize</p>
 }
 ```
 
@@ -109,12 +115,14 @@ function isFailure<T>(property: AsyncProperty<any, T>): property is FailurePrope
 function isCancel(property: AsyncProperty<any>): property is CancelProperty
 ```
 
-# Build
+# Contribute
+
+## Build
 ```
 npm run build
 ```
 
-# Test
+## Test
 ```
 npm test
 ```
