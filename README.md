@@ -58,27 +58,27 @@ const Example: React.FC = () => {
 ```typescript
 type AsyncProperty<T, F = Error> = EmptyProperty | RequestProperty | SuccessProperty<T> | FailureProperty<F> | CancelProperty;
 type EmptyProperty = {
-    status: PropertyStatus.EMPTY
+    state: PropertyState.EMPTY
 }
 type RequestProperty = {
-    status: PropertyStatus.REQUEST
+    state: PropertyState.REQUEST
 }
 type SuccessProperty<T> = {
-    status: PropertyStatus.SUCCESS,
+    state: PropertyState.SUCCESS,
     value: T,
 }
 type FailureProperty<T = Error> = {
-    status: PropertyStatus.FAILURE,
+    state: PropertyState.FAILURE,
     error: T,
 }
 type CancelProperty = {
-    status: PropertyStatus.CANCEL,
+    state: PropertyState.CANCEL,
     reason?: string,
 }
 ```
 ## Enum
 ```typescript
-const enum PropertyStatus {
+const enum PropertyState {
     EMPTY = 'Empty',
     REQUEST = 'Request',
     SUCCESS = 'Success',
@@ -89,13 +89,13 @@ const enum PropertyStatus {
 ## Constants
 ```typescript
 const emptyProperty: EmptyProperty = {
-    status: PropertyStatus.EMPTY
+    state: PropertyState.EMPTY
 }
 const requestProperty: RequestProperty = {
-    status: PropertyStatus.REQUEST
+    state: PropertyState.REQUEST
 }
 const cancelProperty: CancelProperty = {
-    status: PropertyStatus.CANCEL
+    state: PropertyState.CANCEL
 }
 ``` 
 ## Methods

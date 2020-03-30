@@ -1,5 +1,5 @@
 export {
-    AsyncProperty, PropertyStatus, isAsyncProperty,
+    AsyncProperty, PropertyState, isAsyncProperty,
     EmptyProperty, emptyProperty, isEmpty,
     RequestProperty, requestProperty, isRequest,
     SuccessProperty, setSuccessProperty, isSuccess,

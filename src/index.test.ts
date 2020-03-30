@@ -1,5 +1,5 @@
 import {
-    PropertyStatus, isAsyncProperty,
+    PropertyState, isAsyncProperty,
     emptyProperty, isEmpty,
     requestProperty, isRequest,
     setSuccessProperty, isSuccess,
@@ -8,10 +8,10 @@ import {
 } from './index'
 
 const nonAsyncProperty = {
-    status: 'Not Async Property',
+    state: 'Not Async Property',
 }
 const asyncProperty = {
-    status: PropertyStatus.EMPTY
+    state: PropertyState.EMPTY
 }
 
 const testEmptyProperty = emptyProperty
@@ -52,7 +52,7 @@ describe('Test Empty property', () => {
     })
 
     test('Check status', () => {
-        expect(testEmptyProperty.status).toStrictEqual(PropertyStatus.EMPTY)
+        expect(testEmptyProperty.state).toStrictEqual(PropertyState.EMPTY)
     })
 })
 
@@ -70,7 +70,7 @@ describe('Test Request property', () => {
     })
 
     test('Check status', () => {
-        expect(testRequestProperty.status).toStrictEqual(PropertyStatus.REQUEST)
+        expect(testRequestProperty.state).toStrictEqual(PropertyState.REQUEST)
     })
 })
 
@@ -88,7 +88,7 @@ describe('Test Success property', () => {
     })
 
     test('Check status', () => {
-        expect(testSuccessProperty.status).toStrictEqual(PropertyStatus.SUCCESS)
+        expect(testSuccessProperty.state).toStrictEqual(PropertyState.SUCCESS)
     })
 })
 
@@ -106,7 +106,7 @@ describe('Test Failure property', () => {
     })
 
     test('Check status', () => {
-        expect(testFailureProperty.status).toStrictEqual(PropertyStatus.FAILURE)
+        expect(testFailureProperty.state).toStrictEqual(PropertyState.FAILURE)
     })
 })
 
@@ -128,6 +128,6 @@ describe('Test Cancel property', () => {
     })
 
     test('Check status', () => {
-        expect(testCancelProperty.status).toStrictEqual(PropertyStatus.CANCEL)
+        expect(testCancelProperty.state).toStrictEqual(PropertyState.CANCEL)
     })
 })

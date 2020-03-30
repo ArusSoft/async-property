@@ -1,31 +1,31 @@
-export const isAsyncProperty = (property) => property.status && (property.status === "Empty" /* EMPTY */
-    || property.status === "Request" /* REQUEST */
-    || property.status === "Success" /* SUCCESS */
-    || property.status === "Failure" /* FAILURE */
-    || property.status === "Cancel" /* CANCEL */);
+export const isAsyncProperty = (property) => property.state && (property.state === "Empty" /* EMPTY */
+    || property.state === "Request" /* REQUEST */
+    || property.state === "Success" /* SUCCESS */
+    || property.state === "Failure" /* FAILURE */
+    || property.state === "Cancel" /* CANCEL */);
 export const emptyProperty = {
-    status: "Empty" /* EMPTY */
+    state: "Empty" /* EMPTY */
 };
-export const isEmpty = (property) => property.status === "Empty" /* EMPTY */;
+export const isEmpty = (property) => property.state === "Empty" /* EMPTY */;
 export const requestProperty = {
-    status: "Request" /* REQUEST */
+    state: "Request" /* REQUEST */
 };
-export const isRequest = (property) => property.status === "Request" /* REQUEST */;
+export const isRequest = (property) => property.state === "Request" /* REQUEST */;
 export const setSuccessProperty = (value) => ({
-    status: "Success" /* SUCCESS */,
+    state: "Success" /* SUCCESS */,
     value,
 });
-export const isSuccess = (property) => property.status === "Success" /* SUCCESS */;
+export const isSuccess = (property) => property.state === "Success" /* SUCCESS */;
 export const setFailureProperty = (error) => ({
-    status: "Failure" /* FAILURE */,
+    state: "Failure" /* FAILURE */,
     error,
 });
-export const isFailure = (property) => property.status === "Failure" /* FAILURE */;
+export const isFailure = (property) => property.state === "Failure" /* FAILURE */;
 export const cancelProperty = {
-    status: "Cancel" /* CANCEL */
+    state: "Cancel" /* CANCEL */
 };
 export const setCancelProperty = (reason) => ({
-    status: "Cancel" /* CANCEL */,
+    state: "Cancel" /* CANCEL */,
     reason,
 });
-export const isCancel = (property) => property.status === "Cancel" /* CANCEL */;
+export const isCancel = (property) => property.state === "Cancel" /* CANCEL */;
